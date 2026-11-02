@@ -20,7 +20,7 @@ window.PORTFOLIO = {
     sourceNote: "本页数字来自本人自建项目 T1-02 的评测记录；3 场访谈（2026-11-03）、1 人 UAT（2026-10-31）与 8 条 bug 记录均已完成；估算与单样本口径已在对应位置标注。",
     contact: {
       email: "1010587473@qq.com",
-      wechatQr: "assets/wechat-qr.jpg",
+      wechatQr: "assets/wechat-qr-20261103.jpg",
       boundary: "本人负责需求拆解、评测设计、规则与阈值调优、系统验证和 UAT；OCR 与大模型调用现成能力，未做模型训练。项目为个人自建，非公司项目；访谈、UAT 与 bug 记录均来自本人执行的真实过程。"
     },
     numbers: [
