@@ -25,7 +25,7 @@
 |---|---|
 | `index.html` | 页面（内联样式与渲染逻辑） |
 | `data.js` | 全部内容与数据 |
-| `portfolio.pdf` | A4 PDF 版（21 页） |
+| `portfolio.pdf` | A4 PDF 版（20 页） |
 | `证据包.zip` | PRD / 访谈 / UAT / Bug 台账 / 评测口径 |
 | `assets/wechat-qr.jpg` | 微信二维码（已裁剪，不含头像与昵称） |
 
