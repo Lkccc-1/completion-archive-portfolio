@@ -431,7 +431,7 @@
   /* ---------- 阈值滑杆 ---------- */
   function initThreshold(slot){
     const data = P.metrics.thresholdCurve;
-    let proj = "yongfeng";
+    let proj = "projA";
     let t = data[proj].recommended;
 
     slot.innerHTML =
@@ -439,8 +439,8 @@
       +'<h4>阈值滑杆：自己拉一下，看结论怎么翻转</h4>'
       +'<p class="wlead">数据来自 251 条真实检查点的逐条预测。移动滑杆，P / R / F1 与放行判断实时变化。0.40 以上含疑似带，这里是「含疑似」口径；0.62 以上是「严格」口径。虚线是各项目的推荐阈值。</p>'
       +'<div class="seg" data-seg>'
-      +'<button data-proj="yongfeng" class="on">'+esc(data.yongfeng.label)+'</button>'
-      +'<button data-proj="yingfu">'+esc(data.yingfu.label)+'</button>'
+      +'<button data-proj="projA" class="on">'+esc(data.projA.label)+'</button>'
+      +'<button data-proj="projB">'+esc(data.projB.label)+'</button>'
       +'</div>'
       +'<div class="threshold-grid"><div class="chart-wrap"><svg viewBox="0 0 680 280" role="img" aria-label="阈值与 P/R/F1 曲线"></svg></div>'
       +'<div class="readouts">'

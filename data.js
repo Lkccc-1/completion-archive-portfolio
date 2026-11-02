@@ -598,7 +598,7 @@ window.PORTFOLIO = {
   metrics: {
     /* 阈值曲线：[阈值, P, R, F1, 判定条数] */
     thresholdCurve: {
-      yongfeng: {
+      projA: {
         label: "项目A（自校准）", n_answers: 151, n_total: 251, recommended: 0.40,
         points: [
           [0.30, 90.6, 63.6, 74.7, 106], [0.32, 90.6, 63.6, 74.7, 106],
@@ -615,7 +615,7 @@ window.PORTFOLIO = {
           [0.74, 100.0, 7.3, 13.6, 11]
         ]
       },
-      yingfu: {
+      projB: {
         label: "项目B（迁移验证）", n_answers: 126, n_total: 251, recommended: 0.42,
         points: [
           [0.30, 73.6, 53.2, 61.8, 91], [0.32, 73.6, 53.2, 61.8, 91],
