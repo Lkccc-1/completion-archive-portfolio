@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>真实交付版推演 · 竣工资料检查器</title>
+<style>
+  :root{
+    --paper:#fff; --ink:#1b1b1b; --ink2:#4a4a4a; --ink3:#7a7a7a;
+    --line:#ddd6c8; --line2:#ece6da; --navy:#1e3a5f; --copper:#b8612f;
+    --teal:#2f6b63; --amber:#9a6b12; --red:#a33a2b; --soft:#faf7f1;
+    --serif:"Noto Serif SC","Songti SC","SimSun",Georgia,serif;
+    --sans:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#e9e4da;font-family:var(--sans);color:var(--ink);font-size:9.2pt;line-height:1.5}
+  .page{width:210mm;min-height:297mm;margin:18px auto;background:var(--paper);padding:11mm 13mm 9mm;box-shadow:0 2px 18px rgba(0,0,0,.12)}
+  .kicker{font-family:var(--mono);font-size:7.2pt;letter-spacing:.16em;color:var(--copper);text-transform:uppercase}
+  h1{font-family:var(--serif);font-size:21pt;line-height:1.2;color:var(--navy);margin:4px 0 2px;letter-spacing:-.01em}
+  .sub{font-family:var(--serif);font-size:10.5pt;color:var(--ink2)}
+  .warn{margin:6px 0 8px;padding:4px 8px;background:#fbf3e8;border-left:3px solid var(--amber);font-size:8pt;color:#6d5317}
+  .warn b{color:#4f3b0d}
+  .meta{display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:6px;margin:6px 0 7px}
+  .mbox{background:var(--soft);border:1px solid var(--line2);padding:6px 8px}
+  .mbox .l{font-family:var(--mono);font-size:6.6pt;letter-spacing:.1em;color:var(--copper);margin-bottom:2px}
+  .mbox p{margin:0;font-size:8pt;color:var(--ink2);line-height:1.45}
+  .mbox b{color:var(--ink)}
+  h2{font-size:9.5pt;color:var(--navy);margin:8px 0 4px;padding-bottom:2px;border-bottom:1px solid var(--navy);display:flex;justify-content:space-between;align-items:baseline}
+  h2 span{font-family:var(--mono);font-size:6.6pt;color:var(--ink3);letter-spacing:.08em;font-weight:400}
+  .goals{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:3px 0 2px}
+  .goal{border:1px solid var(--line);border-top:2px solid var(--copper);padding:5px 7px;background:#fff}
+  .goal .v{font-family:var(--mono);font-size:13pt;color:var(--navy);line-height:1.1}
+  .goal .k{font-size:7.4pt;color:var(--ink2);margin-top:1px}
+  .goal .n{font-size:6.6pt;color:var(--ink3);line-height:1.35;margin-top:1px}
+  table{width:100%;border-collapse:collapse;font-size:7.6pt;line-height:1.42}
+  th{background:var(--soft);color:var(--ink3);font-size:6.6pt;letter-spacing:.05em;text-align:left;padding:3px 5px;border-bottom:1px solid var(--line)}
+  td{padding:3px 5px;border-bottom:1px solid var(--line2);vertical-align:top;color:var(--ink2)}
+  td b{color:var(--navy)}
+  td.nowrap{white-space:nowrap}
+  .two{display:grid;grid-template-columns:1.08fr 1fr;gap:10px;margin-top:2px}
+  ul{margin:2px 0 0;padding-left:13px}
+  li{margin:1.5px 0;color:var(--ink2);font-size:7.7pt;line-height:1.45}
+  li b{color:var(--ink)}
+  .rule{background:var(--soft);border:1px solid var(--line2);padding:6px 8px;margin-top:7px;font-size:7.6pt;color:var(--ink2)}
+  .rule b{color:var(--red)}
+  .foot{margin-top:7px;padding-top:5px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;font-size:6.8pt;color:var(--ink3);line-height:1.45}
+  .foot b{color:var(--ink2)}
+  .sig{font-family:var(--mono);font-size:6.6pt;color:var(--ink3)}
+  @page{size:A4;margin:0}
+  @media print{
+    body{background:#fff}
+    .page{margin:0;box-shadow:none;width:210mm;min-height:297mm}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="kicker">Real Delivery Simulation / 90 Days</div>
+  <h1>如果放进真实客户项目：90 天交付推演</h1>
+  <div class="sub">竣工资料检查器 · 从“可运行的单机版”到“客户敢签字的试点”</div>
+
+  <div class="warn"><b>先说明：以下是推演，不是已经发生的客户项目。</b>项目本身为个人自建；这一页用于回答“没有真实客户交付经验，你会怎么带项目”，所有目标值都是建议门槛，不是已达成结果。</div>
+
+  <div class="meta">
+    <div class="mbox">
+      <div class="l">假设的客户与角色</div>
+      <p><b>客户：</b>某 220kV 线路工程施工项目部（假设）<br>
+      <b>我的角色：</b>AI 产品经理 / BA，向项目经理汇报；协同资料员、监理、算法、前后端、IT 安全<br>
+      <b>用户：</b>2 名资料员先用，监理抽检</p>
+    </div>
+    <div class="mbox">
+      <div class="l">起点：已经有什么</div>
+      <p><b>可运行单机版：</b>导入、检查、导出链路已通<br>
+      <b>评测：</b>251 个检查点、项目A 669 份文件<br>
+      <b>证据：</b>3 场访谈、1 人 UAT、8 条 bug 台账<br>
+      <b>缺口：</b>未在客户内网部署，未用客户数据校准</p>
+    </div>
+    <div class="mbox">
+      <div class="l">硬约束</div>
+      <p>资料不出内网；资料员每周只能抽 <b>2 小时</b>；监理不参加日常操作，只看结果；上线窗口必须避开送审前两周；不能承诺召回率，不能替人签字。</p>
+    </div>
+  </div>
+
+  <h2>试点成功的四个门槛<span>建议值 · 需客户签字确认</span></h2>
+  <div class="goals">
+    <div class="goal"><div class="v">≤30 min</div><div class="k">一套资料出缺项清单</div><div class="n">系统时间，不含人工复核</div></div>
+    <div class="goal"><div class="v">3 / 3</div><div class="k">资料员独立完成任务</div><div class="n">无提示；记录求助次数</div></div>
+    <div class="goal"><div class="v">≥90%</div><div class="k">监理抽检引用可核对</div><div class="n">抽 20 条，条款+位置对得上</div></div>
+    <div class="goal"><div class="v">0</div><div class="k">P0 / P1 未闭环</div><div class="n">P2 必须有已知限制清单</div></div>
+  </div>
+
+  <h2>90 天节奏：每个阶段都要有“退出条件”<span>阶段 / 关键动作 / 谁签字</span></h2>
+  <table>
+    <thead>
+      <tr><th style="width:11%">阶段</th><th style="width:13%">时间</th><th style="width:40%">关键动作</th><th style="width:20%">交付物</th><th style="width:16%">退出条件（签字）</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>0. 立项</b></td><td class="nowrap">第 1–2 周</td>
+        <td>访谈项目经理 / 资料员 / 监理；做一次基线计时（人工翻一套资料）；确认“只做辅助自查”的范围；把“判真假、代签字”写进不做清单。</td>
+        <td>范围说明、基线记录、成功门槛、风险清单</td>
+        <td>项目经理确认范围；监理确认抽检口径</td>
+      </tr>
+      <tr>
+        <td><b>1. 进场</b></td><td class="nowrap">第 3–4 周</td>
+        <td>内网部署；用脱敏/合成数据跑通；申请 1 套真实资料只读权限；过 IT 安全评审；准备离线更新包。</td>
+        <td>部署记录、安全检查表、回滚包</td>
+        <td>IT 安全签字；数据不出内网</td>
+      </tr>
+      <tr>
+        <td><b>2. 校准</b></td><td class="nowrap">第 5–6 周</td>
+        <td>和资料员一起标 100 个检查点；先写同义词和标注协议；按客户数据重扫阈值，不搬项目A 的 0.40；输出 P/R 两条线。</td>
+        <td>校准报告、阈值建议、已知错误类型</td>
+        <td>项目经理 + 监理确认口径；P≥85%（建议线）</td>
+      </tr>
+      <tr>
+        <td><b>3. 试点</b></td><td class="nowrap">第 7–8 周</td>
+        <td>2 名资料员、3 个任务，每周 2 小时；只观察不提示；每日 triage，P1 48 小时内修；每周给项目经理一页进展。</td>
+        <td>UAT 记录、bug 台账、周报</td>
+        <td>无 P0/P1 未闭环；3/3 任务走通</td>
+      </tr>
+      <tr>
+        <td><b>4. 验收</b></td><td class="nowrap">第 9–10 周</td>
+        <td>监理抽 20 条核对引用；整理“已知限制”；做管理员培训；写运行手册和回滚条件；明确上线后 owner。</td>
+        <td>验收报告、限制清单、培训记录、runbook</td>
+        <td>监理抽检 ≥90%；项目经理签“有条件接收”</td>
+      </tr>
+      <tr>
+        <td><b>5. 移交</b></td><td class="nowrap">第 11–12 周</td>
+        <td>上线后连续 2 周周报：抽检 P、人工复核率、处理时长、P95 延迟；做一次回滚演练；把 badcase 转回归集。</td>
+        <td>周报、回滚演练记录、回归集</td>
+        <td>2 周稳定；运维 owner 接手</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="two">
+    <div>
+      <h2>最可能出问题的 5 件事<span>以及提前写好的应对</span></h2>
+      <ul>
+        <li><b>资料不能出内网：</b>本地部署，离线更新；演示只用合成/脱敏样例，真实资料只在客户环境里跑。</li>
+        <li><b>标注口径打架：</b>先写同义词和“有/无/疑似”协议，再标；双人抽检 10%，不一致的当场裁决并留记录。</li>
+        <li><b>资料员没时间：</b>固定每周 2 小时窗口，项目经理背书；先做一个“能立刻省时间”的任务，不追求一次全量。</li>
+        <li><b>换项目阈值失效：</b>不搬项目A 的 0.40；用客户 100 条重校准，跨项目衰减写进风险，不写进承诺。</li>
+        <li><b>需求蔓延：</b>“判真假 / 代签字 / 承诺召回”三类需求当场拒绝并留痕；范围变更走书面确认。</li>
+      </ul>
+    </div>
+    <div>
+      <h2>验收时我会坚持写清楚的<span>避免“口头通过”</span></h2>
+      <ul>
+        <li><b>业务口径：</b>30 分钟内出清单；3/3 任务独立完成；监理抽检 20 条、引用可核对 ≥90%。</li>
+        <li><b>质量口径：</b>P0/P1 为零；P2 有清单、有 owner、有回归日期；回滚演练通过。</li>
+        <li><b>组织口径：</b>项目经理签字；运维 owner 指定；培训和 runbook 交付。</li>
+        <li><b>明确不承诺：</b>不承诺召回率；不判断资料真伪；不替代人工签字；不保证跨项目直接可用。</li>
+      </ul>
+      <div class="rule"><b>如果只能先做一件事：</b>先做基线计时和标注口径对齐，不要先部署模型。没有基线，后面所有“提效”都无法证明；口径不齐，评测数字再好也不被客户承认。</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div><b>与作品集的关系：</b>作品集回答“凭什么可以上线”；这一页回答“放进真实客户项目，怎么在 90 天里走到有条件接收”。两者都不是“成功上线”的故事。</div>
+    <div class="sig">刘恺希 · 2026.11<br>1010587473@qq.com</div>
+  </div>
+
+</div>
+</body>
+</html>
