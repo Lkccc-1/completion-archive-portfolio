@@ -237,7 +237,7 @@ window.PORTFOLIO = {
     {
       id: "g3", num: "03", name: "数据", en: "Data",
       question: "评测集可信吗？",
-      status: "yellow", statusLabel: "有条件",
+      status: "yellow", statusLabel: "有条件", core: true,
       judgment: "评测集不是「找 50 个例子」，是「让系统最容易漏掉的例子也有机会进来」。",
       blocks: [
         {
@@ -294,7 +294,7 @@ window.PORTFOLIO = {
     {
       id: "g4", num: "04", name: "模型", en: "Model",
       question: "指标过线了吗？",
-      status: "yellow", statusLabel: "有条件",
+      status: "yellow", statusLabel: "有条件", core: true,
       judgment: "模型指标不是越高越好，是「在这个业务代价下，哪个错误更不能接受」。",
       blocks: [
         {
