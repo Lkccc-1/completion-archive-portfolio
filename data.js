@@ -10,14 +10,14 @@ window.PORTFOLIO = {
 
   meta: {
     title: "七道闸门",
-    subtitle: "一个 AI 产品的验收实录",
+    subtitle: "竣工资料检查器 · 一个 AI 产品的验收实录",
     thesis: "上线之前，先回答一个问题：凭什么可以上线。",
-    intro: "把工程验收的七道门，搬到 AI 产品上。每一道门只回答三件事：标准是什么、证据在哪、放不放行。",
+    intro: "验收对象是一款**电力工程竣工资料检查器**：导入一套资料，20 分钟内给出缺项清单与条款依据。把工程验收的七道门搬到 AI 产品上，每一道门只回答三件事：标准是什么、证据在哪、放不放行。",
     author: "刘恺希",
     role: "AI 产品经理 · 作品集",
     date: "2026.11",
     draft: false,
-    sourceNote: "本页数字来自本人自建项目 T1-02 的评测记录；3 场访谈（2026-11-03）、1 人 UAT（2026-10-31）与 8 条 bug 记录均已完成；估算与单样本口径已在对应位置标注。",
+    sourceNote: "本页数字来自本人自建项目 T1-02（竣工资料检查器）的评测记录；3 场访谈（2026-11-03）、1 人 UAT（2026-10-31）与 8 条 bug 记录均已完成；估算与单样本口径已在对应位置标注。",
     contact: {
       email: "1010587473@qq.com",
       wechatQr: "assets/wechat-qr-20261103.jpg",
@@ -39,7 +39,7 @@ window.PORTFOLIO = {
   position: {
     kicker: "00 / 立项依据",
     title: "为什么是这个场景",
-    lead: "先说清楚：不是「我想做个 AI」，是「这个环节每年在返工」。这一段对应 JD 的商业分析与需求管理。",
+    lead: "先说清楚：不是「我想做个 AI」，是「这个环节每年在返工」。产品是一款**电力工程竣工资料检查器**，服务资料员、项目经理与监理；这一段对应 JD 的商业分析与需求管理。",
     blocks: [
       {
         type: "cards",
@@ -78,6 +78,19 @@ window.PORTFOLIO = {
         kind: "key",
         title: "我们的位置",
         text: "不是「更准」，是**可验收、可追溯、可人工兜底**。准确率不是卖点，敢让人核对才是。"
+      },
+      {
+        type: "shots",
+        title: "产品截面（本地可运行）",
+        items: [
+          { src: "assets/shots/01-overview.png", title: "总览：一个数字回答「还差什么」", text: "27 个检查点里已匹配 19、疑似 2、缺失 6，完整率 70.4%；下方按三级分类拆开，整类缺失单独列出。" },
+          { src: "assets/shots/02-rectify.png", title: "整改单：缺项要能直接分工", text: "每条带分类号、缺失说明、责任单位、整改期限与条款依据，可导出 Excel 下发。" },
+          { src: "assets/shots/03-seal.png", title: "印章核查：不确定就说不确定", text: "只认红色印章；黑白扫描件判「不可判」，11 条里 4 条不可判、2 条未检出，全部写进清单。" }
+        ],
+        note: "截图为合成示例工程。公开版源码已脱敏：真实工程名替换为「项目A / 项目C」，不含任何客户资料与真实扫描件。",
+        links: [
+          { label: "GitHub：completion-archive-checker ↗", href: "https://github.com/Lkccc-1/completion-archive-checker" }
+        ]
       }
     ]
   },
@@ -593,6 +606,7 @@ window.PORTFOLIO = {
     lead: "每个结论都能回到一份文件。没有证据的，标「待填」，不假装有。",
     head: ["证据", "内容", "来源"],
     rows: [
+      ["completion-archive-checker", "公开版源码（脱敏）：规则+检索匹配、离线 OCR、123 个测试", "real"],
       ["预测明细.csv", "251 行逐条预测：分数、top1、标注答案", "real"],
       ["跨项目结果.csv", "阈值迁移与重校准对比", "real"],
       ["消融结果.csv", "同义词 / 文件夹后缀的贡献", "real"],
